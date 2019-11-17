@@ -1,0 +1,7 @@
+var faceshields_list = [
+  {},
+  {},
+  {},
+  {},
+  {},
+  ]
