@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image } from 'react-native';
 import {getBackpack, backpack_list} from './list_backpack.js';
-import './list_faceshields.js';
-import './list_headsets.js';
+import {getFaceshields, faceshields_list} from './list_faceshields.js';
+import {getHeadset, headsets_list} from './list_headsets.js';
 import {getHelm , helm_list } from './list_helm.js';
-import {getRig, rig_list} from './list_rig.js';
+import {getRig, getRigStorage, rig_list} from './list_rig.js';
 import {getVest , vest_list } from './list_vest.js';
 
 

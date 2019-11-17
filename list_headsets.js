@@ -18,3 +18,6 @@ var headsets_list = [
   {name: "Sordin", icon: "assets/headsets/04-sordin.png", weight: 0.65},
   {name: "Tactical Sport", icon: "assets/headsets/05-sport.png", weight: 0.6},
 ]
+
+module.exports.headsets_list = headsets_list;
+module.exports.getHeadset = getHeadset;

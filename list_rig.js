@@ -1,21 +1,53 @@
 var getRig = function(prop) {
   switch (prop) {
-      case 0: return require('./assets/rig/Blackrock.png');
-      case 1: return require('./assets/rig/00-M2.png');
-      case 2: return require('./assets/rig/01-M1.png');
-      case 3: return require('./assets/rig/02-Tactec.png');
-      case 4: return require('./assets/rig/03-TV-110.png');
-      default: return require('./assets/rig/Blackrock.png');
+      case 0: return require('./assets/empty.png');
+      case 1: return require('./assets/rig/01-Scav.png');
+      case 2: return require('./assets/rig/02-SOE.png');
+      case 3: return require('./assets/rig/03-Wartech.png');
+      case 4: return require('./assets/rig/04-ScoutSniper.png');
+      case 5: return require('./assets/rig/05-D3CRX.png');
+      case 6: return require('./assets/rig/06-Triton.png');
+      case 7: return require('./assets/rig/07-Blackhawk.gif');
+      case 8: return require('./assets/rig/08-Blackrock.png');
+      case 9: return require('./assets/rig/09-MK3.png');
+      case 10: return require('./assets/rig/10-Alpha.png');
+      case 11: return require('./assets/rig/11-Belt.png');
+      default: return require('./assets/empty.png');
+  }
+}
+var getRigStorage = function(prop) {
+  switch (prop) {
+    case 0: return require('./assets/empty.png');
+    case 1: return require('./assets/rig/01-Scavslot.png');
+    case 2: return require('./assets/rig/02-SOEslot.png');
+    case 3: return require('./assets/rig/03-Wartechslot.png');
+    case 4: return require('./assets/rig/04-ScoutSniperslot.png');
+    case 5: return require('./assets/rig/05-D3CRXslot.png');
+    case 6: return require('./assets/rig/06-Tritonslot.png');
+    case 7: return require('./assets/rig/07-Blackhawkslot.gif');
+    case 8: return require('./assets/rig/08-Blackrockslot.png');
+    case 9: return require('./assets/rig/09-MK3slot.png');
+    case 10: return require('./assets/rig/10-Alphaslot.png');
+    case 11: return require('./assets/rig/11-Beltslot.png');
+    default: return require('./assets/emptyslot.png');
   }
 }
 
 var rig_list = [
-  {name: "None", icon: "assets/rig/Blackrock.png", class: 0, durability: 0, material: "", speed: 0, turn: 0, ergo: 0, zones: ""},
-  {name: "M2", icon: "assets/rig/00-M2.png", class: 3, durability: 40, material: "Titan", speed: -8, turn: -5, ergo: -2, zones: "Chest and Stomach"},
-  {name: "M1", icon: "assets/rig/01-M1.png", class: 3, durability: 45, material: "Titan", speed: -10, turn: -5, ergo: -5, zones: "Chest and Stomach"},
-  {name: "Tactec", icon: "assets/rig/02-Tactec.png", class: 4, durability: 45, material: "Steel", speed: -7, turn: -3, ergo: -3, zones: "Chest"},
-  {name: "TV-110", icon: "assets/rig/03-TV-110.png", class: 3, durability: 60, material: "UHMWPE", speed: -8, turn: -4, ergo: -5, zones: "Chest"},
+  {name: "None", icon: "assets/empty.png", weight: 0.0, size: 0}
+  {name: "M2", icon: "assets/rig/01-Scav.png", weight: 0.4, size: 6},
+  {name: "M2", icon: "assets/rig/02-SOE.png", weight: 0.45, size: 8},
+  {name: "M2", icon: "assets/rig/03-Wartech.png", weight: 1.8, size: 10},
+  {name: "M2", icon: "assets/rig/04-ScoutSniper.png", weight: 1.7, size: 12},
+  {name: "M2", icon: "assets/rig/05-D3CRX.png", weight: .9, size: 16},
+  {name: "M2", icon: "assets/rig/06-Triton.png", weight: 1.3, size: 16},
+  {name: "M2", icon: "assets/rig/07-Blackhawk.gif", weight: 1.35, size: 16},
+  {name: "M2", icon: "assets/rig/08-Blackrock.png", weight: 1.8, size: 20},
+  {name: "M2", icon: "assets/rig/09-MK3.png", weight: 1.65, size: 20},
+  {name: "M2", icon: "assets/rig/10-Alpha.png", weight: 1.7, size: 20},
+  {name: "M2", icon: "assets/rig/11-Belt.png", weight: 1.7, size: 25},
 ]
 
 module.exports.rig_list = rig_list;
 module.exports.getRig = getRig;
+module.exports.getRigStorage = getRigStorage;
