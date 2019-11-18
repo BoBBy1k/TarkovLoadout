@@ -8,7 +8,7 @@ var getBackpack = function(prop) {
       case 5: return require('./assets/backpack/05-MBSS.png');
       case 6: return require('./assets/backpack/06-Scav.png');
       case 7: return require('./assets/backpack/07-Berkut.png');
-      case 8: return require('./assets/backpack/08-TriZip.gif');
+      case 8: return require('./assets/backpack/08-TriZip.png');
       case 9: return require('./assets/backpack/09-Beta2.png');
       case 10: return require('./assets/backpack/10-Oakley.png');
       case 11: return require('./assets/backpack/11-Pilgrim.png');
