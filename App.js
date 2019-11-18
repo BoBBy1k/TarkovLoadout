@@ -5,6 +5,7 @@ import {getFaceshields, faceshields_list} from './list_faceshields.js';
 import {getHeadset, headsets_list} from './list_headsets.js';
 import {getHelm , helm_list } from './list_helm.js';
 import {getRig, getRigStorage, rig_list} from './list_rig.js';
+import {getArmoredRig,getArmoredRigStorage , armoredrig_list } from './list_armoredrig.js';
 import {getVest , vest_list } from './list_vest.js';
 
 
@@ -16,6 +17,7 @@ export default class App extends Component {
     currentHelm: 9,
     currentRig: 1,
     currentVest: 3,
+    currentArmoredRig: 0,
     active: false
   };
 
