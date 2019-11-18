@@ -31,7 +31,7 @@ var getArmoredRigStorage = function(prop) {
 }
 
 var armoredrig_list = [
-  {name: "6B5-16", icon: "assets/armoredrig/01-6B5-16.png", class: 3, durability: 70, material: "Titan", speed: -9, turn: -5, ergo: -12, slots: "Chest and Stomach", slots: 10, weight: 7.1},
+  {name: "6B5-16", icon: "assets/armoredrig/01-6B5-16.png", class: 3, durability: 70, material: "Titan", speed: -9, turn: -5, ergo: -12, zones: "Chest and Stomach", slots: 10, weight: 7.1},
   {name: "6B5-15", icon: "assets/armoredrig/02-6B5-15.png", class: 4, durability: 45, material: "Ceramic", speed: -14, turn: -7, ergo: -12, zones: "Chest and Stomach", slots: 10, weight: 12.2},
   {name: "6B3TM", icon: "assets/armoredrig/03-6B3TM-01M.png", class: 4, durability: 30, material: "Titan", speed: -10, turn: -5, ergo: -15, zones: "Chest and Stomach", slots: 12, weight: 8.2},
   {name: "M2", icon: "assets/armoredrig/04-M2.png", class: 4, durability: 40, material: "Titan", speed: -8, turn: -5, ergo: -2, zones: "Chest and Stomach", slots: 18, weight: 7},

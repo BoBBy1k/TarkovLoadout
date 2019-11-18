@@ -34,18 +34,18 @@ var getRigStorage = function(prop) {
 }
 
 var rig_list = [
-  {name: "None", icon: "assets/empty.png", weight: 0.0, size: 0},
-  {name: "Scav Vest", icon: "assets/rig/01-Scav.png", weight: 0.4, size: 6},
-  {name: "SOE", icon: "assets/rig/02-SOE.png", weight: 0.45, size: 8},
-  {name: "Wartech", icon: "assets/rig/03-Wartech.png", weight: 1.8, size: 10},
-  {name: "Scout Sniper", icon: "assets/rig/04-ScoutSniper.png", weight: 1.7, size: 12},
-  {name: "D3CRX", icon: "assets/rig/05-D3CRX.png", weight: .9, size: 16},
-  {name: "Triton", icon: "assets/rig/06-Triton.png", weight: 1.3, size: 16},
-  {name: "Blackhawk", icon: "assets/rig/07-Blackhawk.gif", weight: 1.35, size: 16},
-  {name: "Blackrock", icon: "assets/rig/08-Blackrock.png", weight: 1.8, size: 20},
-  {name: "MK2", icon: "assets/rig/09-MK3.png", weight: 1.65, size: 20},
-  {name: "Alpha", icon: "assets/rig/10-Alpha.png", weight: 1.7, size: 20},
-  {name: "Belt", icon: "assets/rig/11-Belt.png", weight: 1.7, size: 25},
+  {name: "None", icon: "assets/empty.png", weight: 0.0, slots: 0},
+  {name: "Scav Vest", icon: "assets/rig/01-Scav.png", weight: 0.4, slots: 6},
+  {name: "SOE", icon: "assets/rig/02-SOE.png", weight: 0.45, slots: 8},
+  {name: "Wartech", icon: "assets/rig/03-Wartech.png", weight: 1.8, slots: 10},
+  {name: "Scout Sniper", icon: "assets/rig/04-ScoutSniper.png", weight: 1.7, slots: 12},
+  {name: "D3CRX", icon: "assets/rig/05-D3CRX.png", weight: .9, slots: 16},
+  {name: "Triton", icon: "assets/rig/06-Triton.png", weight: 1.3, slots: 16},
+  {name: "Blackhawk", icon: "assets/rig/07-Blackhawk.gif", weight: 1.35, slots: 16},
+  {name: "Blackrock", icon: "assets/rig/08-Blackrock.png", weight: 1.8, slots: 20},
+  {name: "MK2", icon: "assets/rig/09-MK3.png", weight: 1.65, slots: 20},
+  {name: "Alpha", icon: "assets/rig/10-Alpha.png", weight: 1.7, slots: 20},
+  {name: "Belt", icon: "assets/rig/11-Belt.png", weight: 1.7, slots: 25},
 ]
 
 module.exports.rig_list = rig_list;
