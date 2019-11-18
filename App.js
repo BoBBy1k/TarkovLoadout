@@ -14,9 +14,9 @@ export default class App extends Component {
     currentBackpack: 0,
     currentFaceshield: 0,
     currentHeadphones: 0,
-    currentHelm: 9,
-    currentRig: 1,
-    currentVest: 3,
+    currentHelm: 10,
+    currentVest: 16,
+    currentRig: 11,
     currentArmoredRig: 0,
     active: false
   };

@@ -24,12 +24,12 @@ var getRigStorage = function(prop) {
     case 4: return require('./assets/rig/04-ScoutSniperslot.png');
     case 5: return require('./assets/rig/05-D3CRXslot.png');
     case 6: return require('./assets/rig/06-Tritonslot.png');
-    case 7: return require('./assets/rig/07-Blackhawkslot.gif');
+    case 7: return require('./assets/rig/07-Blackhawkslot.png');
     case 8: return require('./assets/rig/08-Blackrockslot.png');
     case 9: return require('./assets/rig/09-MK3slot.png');
     case 10: return require('./assets/rig/10-Alphaslot.png');
     case 11: return require('./assets/rig/11-Beltslot.png');
-    default: return require('./assets/emptyslot.png');
+    default: return require('./assets/empty.png');
   }
 }
 
