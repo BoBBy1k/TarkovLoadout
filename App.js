@@ -14,20 +14,22 @@ export default class App extends Component {
     currentBackpack: 0,
     currentFaceshield: 0,
     currentHeadphones: 0,
-    currentHelm: 10,
-    currentVest: 16,
-    currentRig: 11,
+    currentHelm: 9,
+    currentRig: 1,
+    currentVest: 3,
     currentArmoredRig: 0,
     active: false
   };
 
+  var getCalculations = function() {
+    return("test")
+  }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Tarkov Loadout</Text>
-        {/* <Image source={require('./assets/vest/00-3M.png')}/>
-        {/* <Image source={{uri: './assets/vest/00-3M.png'}} /> */}
+        <Text style={styles.title}>Tarkov Loadout</Text>
+        <Text style={styles.calculations}>{getCalculations()}</Text>
         <Image source={getHelm(this.state.currentHelm)} style={styles.image} />
         <Image source={getVest(this.state.currentVest)} style={styles.image} />
         <Image source={getRig(this.state.currentRig)} style={styles.image} />
@@ -45,7 +47,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
+  calculations: {
+    flex: 1,
+    fontSize: 20,
+    color: '#333333',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  title: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
