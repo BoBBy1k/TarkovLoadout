@@ -11,12 +11,12 @@ var getHeadset = function(prop) {
 }
 
 var headsets_list = [
-  {name: "None", icon: "assets/empty.png",  weight: 0.0},
-  {name: "FAST RAC", icon: "assets/headsets/01-rac.png", weight: 0.6},
-  {name: "GSSh-01", icon: "assets/headsets/02-gssh.png", weight: 0.5},
-  {name: "ComTac", icon: "assets/headsets/03-comtac.png", weight: 0.7},
-  {name: "Sordin", icon: "assets/headsets/04-sordin.png", weight: 0.65},
-  {name: "Tactical Sport", icon: "assets/headsets/05-sport.png", weight: 0.6},
+  {name: "None", icon: "assets/empty.png",  weight: 0.0, slots: 0, class: 0, speed: 0, turn: 0, ergo: 0},
+  {name: "FAST RAC", icon: "assets/headsets/01-rac.png", weight: 0.6, slots: 0, class: 0, speed: 0, turn: 0, ergo: 0},
+  {name: "GSSh-01", icon: "assets/headsets/02-gssh.png", weight: 0.5, slots: 0, class: 0, speed: 0, turn: 0, ergo: 0},
+  {name: "ComTac", icon: "assets/headsets/03-comtac.png", weight: 0.7, slots: 0, class: 0, speed: 0, turn: 0, ergo: 0},
+  {name: "Sordin", icon: "assets/headsets/04-sordin.png", weight: 0.65, slots: 0, class: 0, speed: 0, turn: 0, ergo: 0},
+  {name: "Tactical Sport", icon: "assets/headsets/05-sport.png", weight: 0.6, slots: 0, class: 0, speed: 0, turn: 0, ergo: 0},
 ]
 
 module.exports.headsets_list = headsets_list;

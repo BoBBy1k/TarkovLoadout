@@ -68,14 +68,13 @@ export default class App extends Component {
     var Turn = list[currentItem]['turn'];
     var Ergo = list[currentItem]['ergo'];
     var Weight = list[currentItem]['weight'];
-    //var Storage = rig_list[this.state.currentRig]['slots'] + armoredrig_list[this.state.currentArmoredRig]['slots'] + backpack_list[this.state.currentBackpack]['slots']
+    var Storage = list[currentItem]['slots']
     var textArmor = "Armor Class: " + armorClass;
     var textSpeed = "\nSpeed: " + Speed + "%";
     var textTurn = "   Turn Rate: " + Turn + "%";
     var textErgo = "\nErgo: " + Ergo;
     var textWeight = "   Weight: " + Weight + "kg";
-    var textStorage = "";
-    // var textStorage = "\nStorage: " + Storage + " slots"
+    var textStorage = "\nStorage: " + Storage + " slots"
     var textTotal = textArmor + textSpeed + textTurn + textErgo + textWeight + textStorage;
     return(textTotal)
   }
@@ -113,7 +112,7 @@ export default class App extends Component {
     var textShow = this.showStats;
     return (
       <View style={styles.container}>
-        {this.state.page === "HomeScreen" && <AppMain textTotal={textShow} currentHelm={this.state.currentHelm} currentFaceshield={this.state.currentFaceshield} currentHeadset={this.state.currentHeadset} currentVest={this.state.currentVest} currentRig={this.state.currentRig} currentArmoredRig={this.state.currentArmoredRig} currentBackpack={this.state.currentBackpack}/>}
+        {this.state.page === "HomeScreen" && <AppMain textTotal={textTotal} currentHelm={this.state.currentHelm} currentFaceshield={this.state.currentFaceshield} currentHeadset={this.state.currentHeadset} currentVest={this.state.currentVest} currentRig={this.state.currentRig} currentArmoredRig={this.state.currentArmoredRig} currentBackpack={this.state.currentBackpack}/>}
         {this.state.page === "Helmet + Faceshield" && <AppHelmet textTotal={textShow} setItem={this.setHelm} currentItem={this.state.currentHelm}/>}
         {/* {this.state.page === "Faceshield" && <AppFaceShield textTotal={textShow} setItem={this.setFaceshield} currentItem={this.state.currentFaceshield}/>} */}
         {this.state.page === "Headset" && <AppHeadset textTotal={textShow} setItem={this.setHeadset} currentItem={this.state.currentHeadset}/>}

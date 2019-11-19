@@ -20,7 +20,7 @@ var getBackpack = function(prop) {
 }
 
 var backpack_list = [
-  {name: "None", icon: "assets/empty.png", class: 0, speed: 0, turn: 0, ergo: 0, weight: 0.0},
+  {name: "None", icon: "assets/empty.png", slots: 0, class: 0, speed: 0, turn: 0, ergo: 0, weight: 0.0},
   {name: "Sling", icon: "assets/backpack/01-Sling.png", slots: 6, class: 0, speed: 0, turn: 0, ergo: 0, weight: .6},
   {name: "Army Bag", icon: "assets/backpack/02-ArmyBag.png", slots: 8, class: 0, speed: 0, turn: 0, ergo: 0, weight: .8},
   {name: "T-Bag", icon: "assets/backpack/03-TBag.png", slots: 9, class: 0, speed: 0, turn: 0, ergo: 0, weight: .7},
