@@ -4,19 +4,26 @@ import {getRig, getRigStorage, rig_list} from './list_rig.js';
 import RigListItem from './AppRigItem';
 
 export default class AppRig extends Component {
-    constructor(props) {
-        super(props);
-      };
-  
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentItem: this.props.currentItem
+    };
+    this.viewItem=this.viewItem.bind(this);
+  };
+  viewItem(input) {
+    this.setState({ currentItem: input })
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.name}>{rig_list[this.props.currentItem]["name"]}</Text>
-        <Text style={styles.calculations}>{this.props.textTotal}</Text>
-        <Button onPress={() => {alert('You tapped the button!');}} title="Press Me" />
+        <Text style={styles.name}>{rig_list[this.state.currentItem]["name"]}</Text>
+        <Text style={styles.calculations}>{this.props.textTotal(rig_list, this.state.currentItem)}</Text>
+        <Button onPress={() => {this.props.setItem(helm_list,this.state.currentItem)}} title="Save" />
         <ScrollView style={styles.container}>
               <Text style={styles.title}>Tactical Rig</Text>
-              {rig_list.map((rig, i) => <RigListItem rig={rig} index={i} setItem={this.props.setItem}/>)}
+              {rig_list.map((rig, i) => <RigListItem rig={rig} index={i} setItem={this.viewItem}/>)}
         </ScrollView>
       </View>
     );

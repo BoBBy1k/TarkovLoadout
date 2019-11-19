@@ -4,19 +4,26 @@ import {getFaceshields, faceshields_list} from './list_faceshields.js';
 import FaceshieldListItem from './AppFaceShieldItem.js';
 
 export default class AppFaceshield extends Component {
-    constructor(props) {
-      super(props);
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentItem: this.props.currentItem
     };
+    this.viewItem=this.viewItem.bind(this);
+  };
+  viewItem(input) {
+    this.setState({ currentItem: input })
+  }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.name}>{faceshields_list[this.props.currentItem]["name"]}</Text>
-        <Text style={styles.calculations}>{this.props.textTotal}</Text>
-        <Button onPress={() => {alert('You tapped the button!');}} title="Press Me" />
+        <Text style={styles.name}>{faceshields_list[this.state.currentItem]["name"]}</Text>
+        <Text style={styles.calculations}>{this.props.textTotal(faceshields_list, this.state.currentItem)}</Text>
+        <Button onPress={() => {this.props.setItem(faceshields_list,this.state.currentItem)}} title="Save" />
         <ScrollView style={styles.container}>
           <Text style={styles.title}>Faceshield</Text>
-          {faceshields_list.map((shield, i) => <FaceshieldListItem shield={shield} index={i} setItem={this.props.setItem}/>)}
+          {faceshields_list.map((shield, i) => <FaceshieldListItem shield={shield} index={i} setItem={this.viewItem}/>)}
         </ScrollView>
       </View>
     );

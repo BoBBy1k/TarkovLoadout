@@ -4,19 +4,26 @@ import {getVest , vest_list } from './list_vest.js';
 import AppVestListItem from './AppVestItem';
 
 export default class AppVest extends Component {
-    constructor(props) {
-        super(props);
-      };
-  
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentItem: this.props.currentItem
+    };
+    this.viewItem=this.viewItem.bind(this);
+  };
+  viewItem(input) {
+    this.setState({ currentItem: input })
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.name}>{vest_list[this.props.currentItem]["name"]}</Text>
-        <Text style={styles.calculations}>{this.props.textTotal}</Text>
-        <Button onPress={() => {alert('You tapped the button!');}} title="Press Me" />
+        <Text style={styles.name}>{vest_list[this.state.currentItem]["name"]}</Text>
+        <Text style={styles.calculations}>{this.props.textTotal(vest_list, this.state.currentItem)}</Text>
+        <Button onPress={() => {this.props.setItem(helm_list,this.state.currentItem)}} title="Save" />
         <ScrollView style={styles.container}>
             <Text style={styles.title}>Armored Vest</Text>
-            {vest_list.map((vest, i) => <AppVestListItem vest={vest} index={i} setItem={this.props.setItem}/>)}
+            {vest_list.map((vest, i) => <AppVestListItem vest={vest} index={i} setItem={this.viewItem}/>)}
         </ScrollView>
       </View>
     );

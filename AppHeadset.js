@@ -4,19 +4,26 @@ import {getHeadset, headsets_list} from './list_headsets.js';
 import HeadsetListItem from './AppHeadsetItem';
 
 export default class AppHeadset extends Component {
-    constructor(props) {
-        super(props);
-      };
-  
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentItem: this.props.currentItem
+    };
+    this.viewItem=this.viewItem.bind(this);
+  };
+  viewItem(input) {
+    this.setState({ currentItem: input })
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.name}>{headsets_list[this.props.currentItem]["name"]}</Text>
-        <Text style={styles.calculations}>{this.props.textTotal}</Text>
-        <Button onPress={() => {alert('You tapped the button!');}} title="Press Me" />
+        <Text style={styles.name}>{headsets_list[this.state.currentItem]["name"]}</Text>
+        <Text style={styles.calculations}>{this.props.textTotal(headsets_list, this.state.currentItem)}</Text>
+        <Button onPress={() => {this.props.setItem(headsets_list,this.state.currentItem)}} title="Save" />
         <ScrollView style={styles.container}>
           <Text style={styles.title}>Headset</Text>
-          {headsets_list.map((headset, i) => <HeadsetListItem headset={headset} index={i} setItem={this.props.setItem}/>)}
+          {headsets_list.map((headset, i) => <HeadsetListItem headset={headset} index={i} setItem={this.viewItem}/>)}
         </ScrollView>
       </View>
     );
