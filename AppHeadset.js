@@ -23,7 +23,7 @@ export default class AppHeadset extends Component {
         <Button onPress={() => {this.props.setItem(this.state.currentItem)}} title="Save" />
         <ScrollView style={styles.container}>
           <Text style={styles.title}>Headset</Text>
-          {headsets_list.map((headset, i) => <HeadsetListItem headset={headset} index={i} setItem={this.viewItem}/>)}
+          {headsets_list.map((headset, i) => <HeadsetListItem headset={headset} index={i} setItem={this.viewItem} currentItem={this.props.currentItem} currentView={this.state.currentItem} />)}
         </ScrollView>
       </View>
     );
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: 'center',
     color: '#ffffff',
-    marginTop: 10,
+    marginTop: 20,
   },
   title: {
     fontSize: 30,

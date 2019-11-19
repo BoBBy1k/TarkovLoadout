@@ -8,12 +8,20 @@ export default class AppHelmet extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentItem: this.props.currentItem
+      currentItem: this.props.currentItem,
+      currentFace: this.props.currentFace
     };
     this.viewItem=this.viewItem.bind(this);
+    this.viewFace=this.viewFace.bind(this);
   };
   viewItem(input) {
     this.setState({ currentItem: input })
+    if(faceshields_list[this.state.currentFace]['require'].includes(input) == false) {
+      this.setState({ currentFace: 0 }) 
+    }
+  }
+  viewFace(input) {
+    this.setState({ currentFace: input })
   }
 
   render() {
@@ -21,10 +29,10 @@ export default class AppHelmet extends Component {
       <View style={styles.container}>
         <Text style={styles.name}>{helm_list[this.state.currentItem]["name"]}</Text>
         <Text style={styles.calculations}>{this.props.textTotal(helm_list, this.state.currentItem)}</Text>
-        <Button style={styles.button} onPress={() => {this.props.setItem(this.state.currentItem)}} title="Save" />
+        <Button style={styles.button} onPress={() => {this.props.setItem(this.state.currentItem,this.state.currentFace)}} title="Save" />
         <ScrollView style={styles.container}>
           <Text style={styles.title}>Helmet / Faceshield</Text>
-          {helm_list.map((helm, i) => <HelmListItem helm={helm} index={i} setItem={this.viewItem}/>)}
+          {helm_list.map((helm, i) => <HelmListItem helm={helm} index={i} setItem={this.viewItem} setFace={this.viewFace} currentItem={this.props.currentItem} currentFace={this.props.currentFace} currentView={this.state.currentItem} currentViewFace={this.state.currentFace} />)}
         </ScrollView>
       </View>
     );
@@ -40,7 +48,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: 'center',
     color: '#ffffff',
-    marginTop: 10,
+    marginTop: 15,
   },
   title: {
     fontSize: 30,

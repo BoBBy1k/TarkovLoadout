@@ -40,9 +40,16 @@ export default class App extends Component {
     this.getCalculations = this.getCalculations.bind(this);
   }
 
-  setHelm = function(input){
+  setHelm = function(input,input2){
     this.setState({ currentHelm: input })
+    this.setState({ currentFaceshield: input })
+    if(faceshields_list[this.state.currentFaceshield]['require'].includes(input) == false) {
+      this.setState({ currentFaceshield: 0 }) 
+    }
+    else
+    {this.setState({ currentFaceshield: input2 })} 
   }
+
   setFaceshield = function(input){
     this.setState({ currentFaceshield: input })
   }
@@ -76,12 +83,18 @@ export default class App extends Component {
     var textWeight = "   Weight: " + Weight + "kg";
     var textStorage = "\nStorage: " + Storage + " slots";
     var textTotal = []
-    textTotal.push(armorClass == 0 ? <Text style={styles.hide}>{textArmor}</Text> : <Text style={styles.purple}>{textArmor}</Text>)
+    textTotal.push(armorClass == 0 ? <Text style={styles.hide}>{textArmor}</Text> 
+    : armorClass == 2 ? <Text style={styles.red}>{textArmor}</Text> 
+    : armorClass == 3 ? <Text style={styles.orange}>{textArmor}</Text> 
+    : armorClass == 4 ? <Text style={styles.green}>{textArmor}</Text> 
+    : armorClass == 5 ? <Text style={styles.blue}>{textArmor}</Text> 
+    : armorClass == 6 ? <Text style={styles.purple}>{textArmor}</Text> 
+    : <Text style={styles.grey}>{textArmor}</Text>)
     textTotal.push(Speed == 0 ? <Text style={styles.hide}>{textSpeed}</Text> : <Text style={styles.red}>{textSpeed}</Text>)
     textTotal.push(Turn == 0 ? <Text style={styles.hide}>{textTurn}</Text> : <Text style={styles.red}>{textTurn}</Text>)
     textTotal.push(Ergo == 0 ? <Text style={styles.hide}>{textErgo}</Text> : <Text style={styles.red}>{textErgo}</Text>)
-    textTotal.push(Weight == 0 ? <Text style={styles.hide}>{textWeight}</Text> : <Text style={styles.red}>{textWeight}</Text>)
-    textTotal.push(Storage == 0 ? <Text style={styles.hide}>{textStorage}</Text> : <Text style={styles.red}>{textStorage}</Text>)
+    textTotal.push(Weight == 0 ? <Text style={styles.hide}>{textWeight}</Text> : <Text>{textWeight}</Text>)
+    textTotal.push(Storage == 0 ? <Text style={styles.hide}>{textStorage}</Text> : <Text>{textStorage}</Text>)
     return(textTotal)
   }
 
@@ -91,6 +104,7 @@ export default class App extends Component {
     var faceshieldClass = faceshields_list[this.state.currentFaceshield]['class']
     var vestClass = vest_list[this.state.currentVest]['class']
     var rigClass = armoredrig_list[this.state.currentArmoredRig]['class']
+    var totalArmor = helm_list[this.state.currentHelm]['class'] + faceshields_list[this.state.currentFaceshield]['class'] + vest_list[this.state.currentVest]['class'] + armoredrig_list[this.state.currentArmoredRig]['class']
     //calculate speed
     var totalSpeed = helm_list[this.state.currentHelm]['speed'] + faceshields_list[this.state.currentFaceshield]['speed'] + vest_list[this.state.currentVest]['speed'] + armoredrig_list[this.state.currentArmoredRig]['speed'] + backpack_list[this.state.currentBackpack]['speed']
     //calculate turn rate
@@ -109,7 +123,19 @@ export default class App extends Component {
     var textErgo = "\nErgo: " + totalErgo;
     var textWeight = "   Weight: " + totalWeight + "kg"
     var textStorage = "\nStorage: " + totalStorage + " slots"
-    var textTotal = textArmor + textSpeed + textTurn + textErgo + textWeight + textStorage;
+    var textTotal = []
+    textTotal.push(totalArmor == 0 ? <Text style={styles.hide}>{textArmor}</Text> 
+    : totalArmor == 2 ? <Text style={styles.red}>{textArmor}</Text> 
+    : totalArmor == 3 ? <Text style={styles.orange}>{textArmor}</Text> 
+    : totalArmor == 4 ? <Text style={styles.green}>{textArmor}</Text> 
+    : totalArmor == 5 ? <Text style={styles.blue}>{textArmor}</Text> 
+    : totalArmor == 6 ? <Text style={styles.purple}>{textArmor}</Text> 
+    : <Text style={styles.grey}>{textArmor}</Text>)
+    textTotal.push(totalSpeed == 0 ? <Text style={styles.hide}>{textSpeed}</Text> : <Text style={styles.red}>{textSpeed}</Text>)
+    textTotal.push(totalTurn == 0 ? <Text style={styles.hide}>{textTurn}</Text> : <Text style={styles.red}>{textTurn}</Text>)
+    textTotal.push(totalErgo == 0 ? <Text style={styles.hide}>{textErgo}</Text> : <Text style={styles.red}>{textErgo}</Text>)
+    textTotal.push(totalWeight == 0 ? <Text style={styles.hide}>{textWeight}</Text> : <Text>{textWeight}</Text>)
+    textTotal.push(totalStorage == 0 ? <Text style={styles.hide}>{textStorage}</Text> : <Text>{textStorage}</Text>)
     return(textTotal)
   }
 
@@ -119,14 +145,14 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         {this.state.page === "HomeScreen" && <AppMain textTotal={textTotal} currentHelm={this.state.currentHelm} currentFaceshield={this.state.currentFaceshield} currentHeadset={this.state.currentHeadset} currentVest={this.state.currentVest} currentRig={this.state.currentRig} currentArmoredRig={this.state.currentArmoredRig} currentBackpack={this.state.currentBackpack}/>}
-        {this.state.page === "Helmet + Faceshield" && <AppHelmet textTotal={textShow} setItem={this.setHelm} currentItem={this.state.currentHelm}/>}
+        {this.state.page === "Helmet + Faceshield" && <AppHelmet textTotal={textShow} setItem={this.setHelm} currentItem={this.state.currentHelm} currentFace={this.state.currentFaceshield} />}
         {/* {this.state.page === "Faceshield" && <AppFaceShield textTotal={textShow} setItem={this.setFaceshield} currentItem={this.state.currentFaceshield}/>} */}
         {this.state.page === "Headset" && <AppHeadset textTotal={textShow} setItem={this.setHeadset} currentItem={this.state.currentHeadset}/>}
         {this.state.page === "Vest" && <AppVest textTotal={textShow} setItem={this.setVest} currentItem={this.state.currentVest}/>}
-        {this.state.page === "Rig" && <AppRig textTotal={textShow} setItem={this.setRig} currentItem={this.state.currentHeadset}/>}
-        {/* {this.state.page === "ArmoredRig" && <AppArmoredRig textTotal={textShow} setItem={this.setArmoredRig} currentItem={currentHeadset}/>} */}
+        {this.state.page === "Rig" && <AppRig textTotal={textShow} setItem={this.setRig} currentItem={this.state.currentRig}/>}
+        {this.state.page === "ArmoredRig" && <AppArmoredRig textTotal={textShow} setItem={this.setArmoredRig} currentItem={this.state.currentArmoredRig}/>}
         {this.state.page === "Backpack" && <AppBackpack textTotal={textShow} setItem={this.setBackpack} currentItem={this.state.currentBackpack}/>}
-        {this.state.page === "Save/Load" && <Text textTotal={textShow} style={styles.text} setItem={this.setHeadset} currentItem={this.state.currentHeadset}>Save/Load</Text>}
+        {/* {this.state.page === "Save/Load" && <Text textTotal={textShow} style={styles.text} setItem={this.setHeadset} currentItem={this.state.currentHeadset}>Save/Load</Text>} */}
 
         <Tabbar
           stateFunc={(tab) => {
@@ -142,11 +168,10 @@ export default class App extends Component {
             {
               page: "Helmet + Faceshield",
               icon: "happy",
-              // badgeNumber: 11,
             },
             // {
             //   page: "Faceshield",
-            //   icon: "happy",
+            //   icon: "grid",
             //   // badgeNumber: 11,
             // },
             {
@@ -156,24 +181,23 @@ export default class App extends Component {
             {
               page: "Vest",
               icon: "body",
-              // badgeNumber: 7,
             },
             {
               page: "Rig",
               icon: "person",
             },
-            // {
-            //   page: "ArmoredRig",
-            //   icon: "person-add",
-            // },
+            {
+              page: "ArmoredRig",
+              icon: "person-add",
+            },
             {
               page: "Backpack",
               icon: "briefcase",
             },
-            {
-              page: "Save/Load",
-              icon: "cog",
-            },
+            // {
+            //   page: "Save/Load",
+            //   icon: "cog",
+            // },
           ]}
         />
       </View>
@@ -195,6 +219,15 @@ const styles = StyleSheet.create({
   },
   red: {
     color: '#ff0000'
+  },
+  orange: {
+    color: '#ff8C00'
+  },
+  green: {
+    color: '#00ff00'
+  },
+  blue: {
+    color: '#0000ff'
   },
   purple: {
     color: '#9400D3'

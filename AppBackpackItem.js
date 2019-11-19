@@ -10,7 +10,11 @@ export default class BackpackListItem extends Component {
   render() {
     return (
       <TouchableHighlight style={styles.imagestyle} onPress={() => {this.props.setItem(this.props.index)}}>
-          <Image source={getBackpack(this.props.index)} />
+          {this.props.index == this.props.currentItem ? 
+          <Image style={styles.activeimagestyle} source={getBackpack(this.props.index)} /> 
+          : this.props.index == this.props.currentView ? 
+          <Image style={styles.viewimagestyle} source={getBackpack(this.props.index)} /> 
+          : <Image source={getBackpack(this.props.index)} />}
       </TouchableHighlight>
     );
   }
@@ -22,4 +26,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center', 
   },
+  activeimagestyle: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center', 
+    borderRadius: 4,
+    borderWidth: 0.5,
+    borderColor: '#00ff00',  
+  },
+  viewimagestyle: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center', 
+    borderRadius: 4,
+    borderWidth: 0.5,
+    borderColor: '#0000ff',  
+  }
 });

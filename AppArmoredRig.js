@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, ScrollView, Button } from 'react-native';
+import {StyleSheet, Text, ScrollView, Button, View } from 'react-native';
 import {getArmoredRig,getArmoredRigStorage , armoredrig_list } from './list_armoredrig.js';
 import AppArmoredRigItem from './AppArmoredRigItem.js';
 
@@ -23,7 +23,7 @@ export default class AppArmoredRig extends Component {
         <Button onPress={() => {this.props.setItem(this.state.currentItem)}} title="Save" />
         <ScrollView style={styles.container}>
           <Text style={styles.title}>Armored Rig</Text>
-         {armoredrig_list.map((armoredrig, i) => <AppArmoredRigItem armoredrig={armoredrig} index={i} setItem={this.viewItem}/>)}
+         {armoredrig_list.map((armoredrig, i) => <AppArmoredRigItem armoredrig={armoredrig} index={i} setItem={this.viewItem} currentItem={this.props.currentItem} currentView={this.state.currentItem} />)}
         </ScrollView>
       </View>
    );
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: 'center',
     color: '#ffffff',
-    marginTop: 10,
+    marginTop: 15,
   },
   title: {
     fontSize: 30,

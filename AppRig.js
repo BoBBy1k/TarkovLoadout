@@ -23,7 +23,7 @@ export default class AppRig extends Component {
         <Button onPress={() => {this.props.setItem(this.state.currentItem)}} title="Save" />
         <ScrollView style={styles.container}>
               <Text style={styles.title}>Tactical Rig</Text>
-              {rig_list.map((rig, i) => <RigListItem rig={rig} index={i} setItem={this.viewItem}/>)}
+              {rig_list.map((rig, i) => <RigListItem rig={rig} index={i} setItem={this.viewItem} currentItem={this.props.currentItem} currentView={this.state.currentItem} />)}
         </ScrollView>
       </View>
     );
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: 'center',
     color: '#ffffff',
-    marginTop: 10,
+    marginTop: 15,
   },
   title: {
     fontSize: 30,

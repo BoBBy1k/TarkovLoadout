@@ -23,7 +23,7 @@ export default class AppFaceshield extends Component {
         <Button onPress={() => {this.props.setItem(this.state.currentItem)}} title="Save" />
         <ScrollView style={styles.container}>
           <Text style={styles.title}>Faceshield</Text>
-          {faceshields_list.map((shield, i) => <FaceshieldListItem shield={shield} index={i} setItem={this.viewItem}/>)}
+          {faceshields_list.map((shield, i) => <FaceshieldListItem shield={shield} index={i} setItem={this.viewItem} currentItem={this.props.currentItem} currentView={this.state.currentItem} />)}
         </ScrollView>
       </View>
     );
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: 'center',
     color: '#ffffff',
-    marginTop: 10,
+    marginTop: 15,
   },
   title: {
     fontSize: 30,
