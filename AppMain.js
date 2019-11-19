@@ -18,21 +18,23 @@ export default class AppMain extends Component {
   
   render() {
     return (
-      <ScrollView style={styles.container}>
-        <Text style={styles.title}>Tarkov Loadout App</Text>
-        <Text style={styles.calculations}>{this.props.textTotal}</Text>
-        <View style={styles.image1Container}>
-          <Image source={getHelm(this.props.currentHelm)} style={styles.image} />
-          <Image source={getHeadset(this.props.currentHeadset)} style={styles.image} />
-        </View>
-        <View style={styles.image2Container}>
-          <Image source={getFaceshields(this.props.currentFaceshield)} style={styles.imageFaceshield} />
-          <Image source={getVest(this.props.currentVest)} style={styles.image} />
-          <Image source={getRig(this.props.currentRig)} style={styles.image} />
-          <Image source={getRigStorage(this.props.currentRig)} style={styles.image} />
-          <Image source={getBackpack(this.props.currentBackpack)} style={styles.image} />
-        </View>
-      </ScrollView>
+      <View style={styles.container}>
+          <Text style={styles.title}>Tarkov Loadout App</Text>
+          <Text style={styles.calculations}>{this.props.textTotal}</Text>
+        <ScrollView style={styles.container}>
+          <View style={styles.image1Container}>
+            <Image source={getHelm(this.props.currentHelm)} style={styles.image} />
+            <Image source={getHeadset(this.props.currentHeadset)} style={styles.image} />
+          </View>
+          <View style={styles.image2Container}>
+            <Image source={getFaceshields(this.props.currentFaceshield)} style={styles.image} />
+            <Image source={getVest(this.props.currentVest)} style={styles.image} />
+            <Image source={getRig(this.props.currentRig)} style={styles.image} />
+            <Image source={getRigStorage(this.props.currentRig)} style={styles.image} />
+            <Image source={getBackpack(this.props.currentBackpack)} style={styles.image} />
+          </View>
+        </ScrollView>
+      </View>
     );
   }
 }
@@ -42,48 +44,42 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000000',
   },
+  name: {
+    fontSize: 30,
+    textAlign: 'center',
+    color: '#ffffff',
+    marginTop: 10,
+  },
+  title: {
+    fontSize: 30,
+    textAlign: 'center',
+    color: '#ffffff',
+    marginTop: 10,
+  },
+  calculations: {
+    fontSize: 20,
+    color: '#ffffff',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    marginBottom: 5,
+  },
   image1Container: {
     flex: 1,    
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#000000',
-    marginTop: 20,
   },
   image2Container: {
-    flex: 3,    
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#000000',
-  },
-  calculations: {
-    flex: 1,
-    fontSize: 20,
-    color: '#ffffff',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
-    marginTop: 20,
   },
   image: {
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  imageFaceshield: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  title: {
-    fontSize: 40,
-    color: '#ffffff',
-    textAlign: 'center',
-    marginTop: 30,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 });

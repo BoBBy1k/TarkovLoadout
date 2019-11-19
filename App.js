@@ -8,14 +8,14 @@ import {getVest , vest_list } from './list_vest.js';
 import {getRig, getRigStorage, rig_list} from './list_rig.js';
 import {getArmoredRig,getArmoredRigStorage , armoredrig_list } from './list_armoredrig.js';
 import {getBackpack, backpack_list} from './list_backpack.js';
-import AppMain from './AppMain.js'
-import AppHelmet from './AppHelmet.js'
-import AppFaceShield from './AppFaceShield.js'
-import AppHeadset from './AppHeadset.js'
-import AppVest from './AppVest.js'
-import AppRig from './AppRig.js'
-import AppArmoredRig from './AppArmoredRig.js'
-import AppBackpack from './AppBackpack.js'
+import AppMain from './AppMain.js';
+import AppHelmet from './AppHelmet.js';
+import AppFaceShield from './AppFaceShield.js';
+import AppHeadset from './AppHeadset.js';
+import AppVest from './AppVest.js';
+import AppRig from './AppRig.js';
+import AppArmoredRig from './AppArmoredRig.js';
+import AppBackpack from './AppBackpack.js';
 
 export default class App extends Component {
   constructor() {
@@ -61,6 +61,25 @@ export default class App extends Component {
   setBackpack = function(input){
     this.setState({ currentBackpack: input })
   }
+
+  showStats = function(list, currentItem) {
+    var armorClass = list[currentItem]['class'];
+    var Speed = list[currentItem]['speed'];
+    var Turn = list[currentItem]['turn'];
+    var Ergo = list[currentItem]['ergo'];
+    var Weight = list[currentItem]['weight'];
+    //var Storage = rig_list[this.state.currentRig]['slots'] + armoredrig_list[this.state.currentArmoredRig]['slots'] + backpack_list[this.state.currentBackpack]['slots']
+    var textArmor = "Armor Class: " + armorClass;
+    var textSpeed = "\nSpeed: " + Speed + "%";
+    var textTurn = "   Turn Rate: " + Turn + "%";
+    var textErgo = "\nErgo: " + Ergo;
+    var textWeight = "   Weight: " + Weight + "kg";
+    var textStorage = "";
+    // var textStorage = "\nStorage: " + Storage + " slots"
+    var textTotal = textArmor + textSpeed + textTurn + textErgo + textWeight + textStorage;
+    return(textTotal)
+  }
+
   getCalculations = function() {
     //calculate protection levels
     var helmClass = helm_list[this.state.currentHelm]['class']
@@ -91,17 +110,18 @@ export default class App extends Component {
 
   render() {
     var textTotal = this.getCalculations();
+    var textShow = this.showStats;
     return (
       <View style={styles.container}>
-        {this.state.page === "HomeScreen" && <AppMain textTotal={textTotal} currentHelm={this.state.currentHelm} currentFaceshield={this.state.currentFaceshield} currentHeadset={this.state.currentHeadset} currentVest={this.state.currentVest} currentRig={this.state.currentRig} currentArmoredRig={this.state.currentArmoredRig} currentBackpack={this.state.currentBackpack}/>}
-        {this.state.page === "Helmet + Faceshield" && <AppHelmet textTotal={textTotal} setItem={this.setHelm} />}
-        {/* {this.state.page === "Faceshield" && <AppFaceShield textTotal={textTotal} setItem={this.setHelm} />} */}
-        {this.state.page === "Headset" && <AppHeadset textTotal={textTotal} setItem={this.setHeadset} />}
-        {this.state.page === "Vest" && <AppVest textTotal={textTotal} setItem={this.setVest} />}
-        {this.state.page === "Rig" && <AppRig textTotal={textTotal} setItem={this.setRig} />}
-        {/* {this.state.page === "ArmoredRig" && <AppArmoredRig textTotal={textTotal} setItem={this.setArmoredRig} />} */}
-        {this.state.page === "Backpack" && <AppBackpack textTotal={textTotal} setItem={this.setBackpack} />}
-        {this.state.page === "Save/Load" && <Text textTotal={textTotal} style={styles.text}>Save/Load</Text>}
+        {this.state.page === "HomeScreen" && <AppMain textTotal={textShow} currentHelm={this.state.currentHelm} currentFaceshield={this.state.currentFaceshield} currentHeadset={this.state.currentHeadset} currentVest={this.state.currentVest} currentRig={this.state.currentRig} currentArmoredRig={this.state.currentArmoredRig} currentBackpack={this.state.currentBackpack}/>}
+        {this.state.page === "Helmet + Faceshield" && <AppHelmet textTotal={textShow} setItem={this.setHelm} currentItem={this.state.currentHelm}/>}
+        {/* {this.state.page === "Faceshield" && <AppFaceShield textTotal={textShow} setItem={this.setFaceshield} currentItem={this.state.currentFaceshield}/>} */}
+        {this.state.page === "Headset" && <AppHeadset textTotal={textShow} setItem={this.setHeadset} currentItem={this.state.currentHeadset}/>}
+        {this.state.page === "Vest" && <AppVest textTotal={textShow} setItem={this.setVest} currentItem={this.state.currentVest}/>}
+        {this.state.page === "Rig" && <AppRig textTotal={textShow} setItem={this.setRig} currentItem={this.state.currentHeadset}/>}
+        {/* {this.state.page === "ArmoredRig" && <AppArmoredRig textTotal={textShow} setItem={this.setArmoredRig} currentItem={currentHeadset}/>} */}
+        {this.state.page === "Backpack" && <AppBackpack textTotal={textShow} setItem={this.setBackpack} currentItem={this.state.currentBackpack}/>}
+        {this.state.page === "Save/Load" && <Text textTotal={textShow} style={styles.text} setItem={this.setHeadset} currentItem={this.state.currentHeadset}>Save/Load</Text>}
 
         <Tabbar
           stateFunc={(tab) => {

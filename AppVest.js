@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, ScrollView, Button } from 'react-native';
+import {StyleSheet, Text, ScrollView, Button, View } from 'react-native';
 import {getVest , vest_list } from './list_vest.js';
 import AppVestListItem from './AppVestItem';
 
@@ -10,12 +10,15 @@ export default class AppVest extends Component {
   
   render() {
     return (
-      <ScrollView style={styles.container}>
-        <Text style={styles.title}>Armored Vests</Text>
+      <View style={styles.container}>
+        <Text style={styles.name}>{vest_list[this.props.currentItem]["name"]}</Text>
         <Text style={styles.calculations}>{this.props.textTotal}</Text>
-            <Button onPress={() => {alert('You tapped the button!');}} title="Press Me" />
+        <Button onPress={() => {alert('You tapped the button!');}} title="Press Me" />
+        <ScrollView style={styles.container}>
+            <Text style={styles.title}>Armored Vest</Text>
             {vest_list.map((vest, i) => <AppVestListItem vest={vest} index={i} setItem={this.props.setItem}/>)}
-      </ScrollView>
+        </ScrollView>
+      </View>
     );
   }
 }
@@ -25,6 +28,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000000',
   },
+  name: {
+    fontSize: 30,
+    textAlign: 'center',
+    color: '#ffffff',
+    marginTop: 10,
+  },
   title: {
     fontSize: 30,
     textAlign: 'center',
@@ -32,12 +41,10 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   calculations: {
-    flex: 1,
     fontSize: 20,
     color: '#ffffff',
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    marginTop: 20,
   },
 });

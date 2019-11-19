@@ -10,23 +10,27 @@ export default class RigListItem extends Component {
   render() {
     return (
     <View>
-      <TouchableHighlight onPress={() => {this.props.setItem(this.props.index)}}>
-          <Image style={styles.imagestyle} source={getRig(this.props.index)} />
+      <TouchableHighlight style={styles.imagestyle} onPress={() => {this.props.setItem(this.props.index)}}>
+          <Image source={getRig(this.props.index)} />
       </TouchableHighlight>
-      {this.props.index == 0 ? null : <Image style={styles.imagestyle} source={getRigStorage(this.props.index)} />}
+      <View style={styles.imagestyle2}>
+      {this.props.index == 0 ? null : <Image source={getRigStorage(this.props.index)} />}
+      </View>
     </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#000000',
-    },
-    title: {
-      fontSize: 30,
-      textAlign: 'center',
-      marginTop: 30,
-    },
-  });
+  imagestyle: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center', 
+  },
+  imagestyle2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center', 
+    marginBottom: 15
+  }
+});

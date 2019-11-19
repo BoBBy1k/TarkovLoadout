@@ -1,21 +1,31 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, ScrollView, Button } from 'react-native';
+import {StyleSheet, Text, ScrollView, Button, View} from 'react-native';
 import {getBackpack, backpack_list} from './list_backpack.js';
 import BackpackListItem from './AppBackpackItem.js';
 
 export default class AppBackpack extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+          currentItem: this.props.currentItem
+        };
+        this.viewItem=this.viewItem.bind(this);
       };
+  viewItem(input) {
+    this.setState({ currentItem: input })
+  }
   
   render() {
     return (
-      <ScrollView style={styles.container}>
-        <Text style={styles.title}>Backpack</Text>
-        <Text style={styles.calculations}>{this.props.textTotal}</Text>
-            <Button onPress={() => {alert('You tapped the button!');}} title="Press Me" />
-            {backpack_list.map((backpack, i) => <BackpackListItem backpack={backpack} index={i} setItem={this.props.setItem}/>)}
+      <View style={styles.container}>
+        <Text style={styles.name}>{backpack_list[this.state.currentItem]["name"]}</Text>
+        <Text style={styles.calculations}>{this.props.textTotal(backpack_list, this.state.currentItem)}</Text>
+        <Button onPress={() => {this.props.setItem(this.state.currentItem)}} title="Save" />
+        <ScrollView style={styles.container}>
+          <Text style={styles.title}>Backpack</Text>
+          {backpack_list.map((backpack, i) => <BackpackListItem backpack={backpack} index={i} setItem={this.viewItem}/>)}
       </ScrollView>
+      </View>
     );
   }
 }
@@ -25,6 +35,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000000',
   },
+  name: {
+    fontSize: 30,
+    textAlign: 'center',
+    color: '#ffffff',
+    marginTop: 10,
+  },
   title: {
     fontSize: 30,
     textAlign: 'center',
@@ -32,12 +48,10 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   calculations: {
-    flex: 1,
     fontSize: 20,
     color: '#ffffff',
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    marginTop: 20,
   },
 });

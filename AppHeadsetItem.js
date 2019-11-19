@@ -9,21 +9,17 @@ export default class HeadsetListItem extends Component {
   
   render() {
     return (
-      <TouchableHighlight onPress={() => {this.props.setItem(this.props.index)}}>
-          <Image style={styles.imagestyle} source={getHeadset(this.props.index)} />
+      <TouchableHighlight style={styles.imagestyle} onPress={() => {this.props.setItem(this.props.index)}}>
+          <Image source={getHeadset(this.props.index)} />
       </TouchableHighlight>
     );
   }
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#000000',
-    },
-    title: {
-      fontSize: 30,
-      textAlign: 'center',
-      marginTop: 30,
-    },
-  });
+  imagestyle: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center', 
+  },
+});
