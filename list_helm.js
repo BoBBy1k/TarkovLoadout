@@ -29,8 +29,8 @@ var getHelm = function(prop) {
 var helm_list = [
     {name: "None", icon: "assets/empty.png", class: 0, durability: 0, material: "", ricochet: "", speed: 0, turn: 0, ergo: 0, weight: 0, slots: 0},
     {name: "Kolpak", icon: "assets/helm/01-Kolpak.png", class: 2, durability: 25, material: "Aramid", ricochet: "low", speed: -2, turn: -10, ergo: -5, weight: 1.9, slots: 0},
-    {name: "SHPM", icon: "assets/helm/02-Firefighter.png", class: 2, durability: 40, material: "Aramid", ricochet: "low", speed: 0, turn: -12, ergo: -10, weight: 1.5, slots: 0},
-    {name: "Jeta", icon: "assets/helm/03-Jeta.png", class: 2, durability: 65, material: "Aramid", ricochet: "low", speed: 0, turn: -13, ergo: -14, weight: 1.3, slots: 0},
+    {name: "SHPM Firefighter", icon: "assets/helm/02-Firefighter.png", class: 2, durability: 40, material: "Aramid", ricochet: "low", speed: 0, turn: -12, ergo: -10, weight: 1.5, slots: 0},
+    {name: "Jeta Riot", icon: "assets/helm/03-Jeta.png", class: 2, durability: 65, material: "Aramid", ricochet: "low", speed: 0, turn: -13, ergo: -14, weight: 1.3, slots: 0},
     {name: "SSH", icon: "assets/helm/04-SSH.png", class: 3, durability: 30, material: "Steel", ricochet: "high", speed: -2, turn: -8, ergo: -13, weight: 1.5, slots: 0},
     {name: "UNTAR", icon: "assets/helm/05-UNTAR.png", class: 3, durability: 25, material: "Aramid", ricochet: "high", speed: -2, turn: -10, ergo: -2, weight: 2.2, slots: 0},
     {name: "6B47", icon: "assets/helm/06-6B47.gif", class: 3, durability: 25, material: "Aluminium", ricochet: "high", speed: -1, turn: -5, ergo: -2, weight: 1.3, slots: 0},

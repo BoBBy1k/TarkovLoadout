@@ -21,7 +21,7 @@ export default class AppHelmet extends Component {
       <View style={styles.container}>
         <Text style={styles.name}>{helm_list[this.state.currentItem]["name"]}</Text>
         <Text style={styles.calculations}>{this.props.textTotal(helm_list, this.state.currentItem)}</Text>
-        <Button onPress={() => {this.props.setItem(this.state.currentItem)}} title="Save" />
+        <Button style={styles.button} onPress={() => {this.props.setItem(this.state.currentItem)}} title="Save" />
         <ScrollView style={styles.container}>
           <Text style={styles.title}>Helmet / Faceshield</Text>
           {helm_list.map((helm, i) => <HelmListItem helm={helm} index={i} setItem={this.viewItem}/>)}

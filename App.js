@@ -74,8 +74,14 @@ export default class App extends Component {
     var textTurn = "   Turn Rate: " + Turn + "%";
     var textErgo = "\nErgo: " + Ergo;
     var textWeight = "   Weight: " + Weight + "kg";
-    var textStorage = "\nStorage: " + Storage + " slots"
-    var textTotal = textArmor + textSpeed + textTurn + textErgo + textWeight + textStorage;
+    var textStorage = "\nStorage: " + Storage + " slots";
+    var textTotal = []
+    textTotal.push(armorClass == 0 ? <Text style={styles.hide}>{textArmor}</Text> : <Text style={styles.purple}>{textArmor}</Text>)
+    textTotal.push(Speed == 0 ? <Text style={styles.hide}>{textSpeed}</Text> : <Text style={styles.red}>{textSpeed}</Text>)
+    textTotal.push(Turn == 0 ? <Text style={styles.hide}>{textTurn}</Text> : <Text style={styles.red}>{textTurn}</Text>)
+    textTotal.push(Ergo == 0 ? <Text style={styles.hide}>{textErgo}</Text> : <Text style={styles.red}>{textErgo}</Text>)
+    textTotal.push(Weight == 0 ? <Text style={styles.hide}>{textWeight}</Text> : <Text style={styles.red}>{textWeight}</Text>)
+    textTotal.push(Storage == 0 ? <Text style={styles.hide}>{textStorage}</Text> : <Text style={styles.red}>{textStorage}</Text>)
     return(textTotal)
   }
 
@@ -184,4 +190,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 40,
   },
+  hide: {
+    color: '#303030'
+  },
+  red: {
+    color: '#ff0000'
+  },
+  purple: {
+    color: '#9400D3'
+  }
 });
