@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19003,
-  "packagerPid": 34696,
-  "expoServerNgrokUrl": "https://jx-bge.anonymous.tarkovloadout.exp.direct",
-  "packagerNgrokUrl": "https://packager.jx-bge.anonymous.tarkovloadout.exp.direct",
-  "ngrokPid": 34706
+  "packagerPort": 19001,
+  "packagerPid": 44918,
+  "expoServerNgrokUrl": "https://pn-kvf.anonymous.tarkovloadout.exp.direct",
+  "packagerNgrokUrl": "https://packager.pn-kvf.anonymous.tarkovloadout.exp.direct",
+  "ngrokPid": 44928
 }

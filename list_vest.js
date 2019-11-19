@@ -24,6 +24,7 @@ var getVest = function(prop) {
 }
 
 var vest_list = [
+{name: "None", icon: "assets/empty.png", class: 0, durability: 0, material: "", speed: 0, turn: 0, ergo: 0, zones: "", weight: 0},
 {name: "3M", icon: "assets/vest/01-3M.png", class: 2, durability: 40, material: "Aramid", speed: -7, turn: -6, ergo: -4, zones: "Chest and Stomach", weight: 8},
 {name: "PACA", icon: "assets/vest/02-PACA.png", class: 2, durability: 50, material: "Aramid", speed: -6, turn: -5, ergo: -6, zones: "Chest and Stomach", weight: 7},
 {name: "UNTAR", icon: "assets/vest/03-UNTAR.png", class: 3, durability: 45, material: "Aluminium", speed: -18, turn: -6, ergo: -6, zones: "Chest and Stomach", weight: 11},

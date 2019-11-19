@@ -27,7 +27,7 @@ var getHelm = function(prop) {
 }
 
 var helm_list = [
-    {name: "None", icon: "assets/empty.png", weight: 0.0},
+    {name: "None", icon: "assets/empty.png", class: 0, durability: 0, material: "", ricochet: "", speed: 0, turn: 0, ergo: 0, weight: 0},
     {name: "Kolpak", icon: "assets/helm/01-Kolpak.png", class: 2, durability: 25, material: "Aramid", ricochet: "low", speed: -2, turn: -10, ergo: -5, weight: 1.9},
     {name: "SHPM", icon: "assets/helm/02-Firefighter.png", class: 2, durability: 40, material: "Aramid", ricochet: "low", speed: 0, turn: -12, ergo: -10, weight: 1.5},
     {name: "Jeta", icon: "assets/helm/03-Jeta.png", class: 2, durability: 65, material: "Aramid", ricochet: "low", speed: 0, turn: -13, ergo: -14, weight: 1.3},
