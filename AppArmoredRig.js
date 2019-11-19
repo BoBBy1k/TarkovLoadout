@@ -20,7 +20,7 @@ export default class AppArmoredRig extends Component {
       <View style={styles.container}>
         <Text style={styles.name}>{armoredrig_list[this.state.currentItem]["name"]}</Text>
         <Text style={styles.calculations}>{this.props.textTotal(armoredrig_list, this.state.currentItem)}</Text>
-        <Button onPress={() => {this.props.setItem(armoredrig_list,this.state.currentItem)}} title="Save" />
+        <Button onPress={() => {this.props.setItem(this.state.currentItem)}} title="Save" />
         <ScrollView style={styles.container}>
           <Text style={styles.title}>Armored Rig</Text>
          {armoredrig_list.map((armoredrig, i) => <AppArmoredRigItem armoredrig={armoredrig} index={i} setItem={this.viewItem}/>)}

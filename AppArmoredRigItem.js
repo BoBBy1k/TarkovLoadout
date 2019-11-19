@@ -6,12 +6,12 @@ export default class ArmoredRigListItem extends Component {
     constructor(props) {
         super(props);
       };
-  
+
   render() {
     return (
-            <TouchableHighlight style={styles.imagestyle} onPress={() => {this.props.setItem(this.props.index)}}>
-                <Image  source={getArmoredRig(this.props.index)} />
-            </TouchableHighlight>
+      <TouchableHighlight style={styles.imagestyle} onPress={() => {this.props.setItem(this.props.index)}}>
+          <Image  source={getArmoredRig(this.props.index)} />
+      </TouchableHighlight>
     );
   }
 }
@@ -28,6 +28,6 @@ const styles = StyleSheet.create({
   },
   imagestyle: {
     justifyContent: 'center',
-    alignItems: 'center', 
+    alignItems: 'center',
   }
 });

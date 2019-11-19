@@ -20,7 +20,7 @@ export default class AppHeadset extends Component {
       <View style={styles.container}>
         <Text style={styles.name}>{headsets_list[this.state.currentItem]["name"]}</Text>
         <Text style={styles.calculations}>{this.props.textTotal(headsets_list, this.state.currentItem)}</Text>
-        <Button onPress={() => {this.props.setItem(headsets_list,this.state.currentItem)}} title="Save" />
+        <Button onPress={() => {this.props.setItem(this.state.currentItem)}} title="Save" />
         <ScrollView style={styles.container}>
           <Text style={styles.title}>Headset</Text>
           {headsets_list.map((headset, i) => <HeadsetListItem headset={headset} index={i} setItem={this.viewItem}/>)}

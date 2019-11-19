@@ -20,7 +20,7 @@ export default class AppRig extends Component {
       <View style={styles.container}>
         <Text style={styles.name}>{rig_list[this.state.currentItem]["name"]}</Text>
         <Text style={styles.calculations}>{this.props.textTotal(rig_list, this.state.currentItem)}</Text>
-        <Button onPress={() => {this.props.setItem(helm_list,this.state.currentItem)}} title="Save" />
+        <Button onPress={() => {this.props.setItem(this.state.currentItem)}} title="Save" />
         <ScrollView style={styles.container}>
               <Text style={styles.title}>Tactical Rig</Text>
               {rig_list.map((rig, i) => <RigListItem rig={rig} index={i} setItem={this.viewItem}/>)}

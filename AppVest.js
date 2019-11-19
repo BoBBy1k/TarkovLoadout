@@ -20,7 +20,7 @@ export default class AppVest extends Component {
       <View style={styles.container}>
         <Text style={styles.name}>{vest_list[this.state.currentItem]["name"]}</Text>
         <Text style={styles.calculations}>{this.props.textTotal(vest_list, this.state.currentItem)}</Text>
-        <Button onPress={() => {this.props.setItem(helm_list,this.state.currentItem)}} title="Save" />
+        <Button onPress={() => {this.props.setItem(this.state.currentItem)}} title="Save" />
         <ScrollView style={styles.container}>
             <Text style={styles.title}>Armored Vest</Text>
             {vest_list.map((vest, i) => <AppVestListItem vest={vest} index={i} setItem={this.viewItem}/>)}

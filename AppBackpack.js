@@ -20,7 +20,7 @@ export default class AppBackpack extends Component {
       <View style={styles.container}>
         <Text style={styles.name}>{backpack_list[this.state.currentItem]["name"]}</Text>
         <Text style={styles.calculations}>{this.props.textTotal(backpack_list, this.state.currentItem)}</Text>
-        <Button onPress={() => {this.props.setItem(backpack_list,this.state.currentItem)}} title="Save" />
+        <Button onPress={() => {this.props.setItem(this.state.currentItem)}} title="Save" />
         <ScrollView style={styles.container}>
           <Text style={styles.title}>Backpack</Text>
           {backpack_list.map((backpack, i) => <BackpackListItem backpack={backpack} index={i} setItem={this.viewItem}/>)}
