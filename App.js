@@ -43,11 +43,12 @@ export default class App extends Component {
   setHelm = function(input,input2){
     this.setState({ currentHelm: input })
     this.setState({ currentFaceshield: input })
-    if(faceshields_list[this.state.currentFaceshield]['require'].includes(input) == false) {
+    if(faceshields_list[input2]['require'].includes(input) == false) {
       this.setState({ currentFaceshield: 0 }) 
     }
-    else
-    {this.setState({ currentFaceshield: input2 })} 
+    if(faceshields_list[input2]['require'].includes(input) == true) {
+      this.setState({ currentFaceshield: input2 }) 
+    }
   }
 
   setFaceshield = function(input){
@@ -77,6 +78,37 @@ export default class App extends Component {
     var Weight = list[currentItem]['weight'];
     var Storage = list[currentItem]['slots']
     var textArmor = "Armor Class: " + armorClass;
+    var textSpeed = "\nSpeed: " + Speed + "%";
+    var textTurn = "   Turn Rate: " + Turn + "%";
+    var textErgo = "\nErgo: " + Ergo;
+    var textWeight = "   Weight: " + Weight + "kg";
+    var textStorage = "\nStorage: " + Storage + " slots";
+    var textTotal = []
+    textTotal.push(armorClass == 0 ? <Text style={styles.hide}>{textArmor}</Text> 
+    : armorClass == 2 ? <Text style={styles.red}>{textArmor}</Text> 
+    : armorClass == 3 ? <Text style={styles.orange}>{textArmor}</Text> 
+    : armorClass == 4 ? <Text style={styles.green}>{textArmor}</Text> 
+    : armorClass == 5 ? <Text style={styles.blue}>{textArmor}</Text> 
+    : armorClass == 6 ? <Text style={styles.purple}>{textArmor}</Text> 
+    : <Text style={styles.grey}>{textArmor}</Text>)
+    textTotal.push(Speed == 0 ? <Text style={styles.hide}>{textSpeed}</Text> : <Text style={styles.red}>{textSpeed}</Text>)
+    textTotal.push(Turn == 0 ? <Text style={styles.hide}>{textTurn}</Text> : <Text style={styles.red}>{textTurn}</Text>)
+    textTotal.push(Ergo == 0 ? <Text style={styles.hide}>{textErgo}</Text> : <Text style={styles.red}>{textErgo}</Text>)
+    textTotal.push(Weight == 0 ? <Text style={styles.hide}>{textWeight}</Text> : <Text>{textWeight}</Text>)
+    textTotal.push(Storage == 0 ? <Text style={styles.hide}>{textStorage}</Text> : <Text>{textStorage}</Text>)
+    return(textTotal)
+  }
+
+  showStats2 = function(list, currentItem, list2, currentItem2) {
+    var armorClass = list[currentItem]['class'];
+    var armorClass2 = list2[currentItem2]['class'];
+    var Speed = list[currentItem]['speed'] + list2[currentItem2]['speed'];
+    var Turn = list[currentItem]['turn'] + list2[currentItem2]['turn'];
+    var Ergo = list[currentItem]['ergo'] + list2[currentItem2]['ergo'];
+    var Weight = list[currentItem]['weight'] + list2[currentItem2]['weight'];
+    Weight = Weight.toPrecision(3)
+    var Storage = list[currentItem]['slots'] + list2[currentItem2]['slots']
+    var textArmor = "Armor Class: " + armorClass + " / " + armorClass2;
     var textSpeed = "\nSpeed: " + Speed + "%";
     var textTurn = "   Turn Rate: " + Turn + "%";
     var textErgo = "\nErgo: " + Ergo;
@@ -142,10 +174,11 @@ export default class App extends Component {
   render() {
     var textTotal = this.getCalculations();
     var textShow = this.showStats;
+    var textShow2 = this.showStats2;
     return (
       <View style={styles.container}>
         {this.state.page === "HomeScreen" && <AppMain textTotal={textTotal} currentHelm={this.state.currentHelm} currentFaceshield={this.state.currentFaceshield} currentHeadset={this.state.currentHeadset} currentVest={this.state.currentVest} currentRig={this.state.currentRig} currentArmoredRig={this.state.currentArmoredRig} currentBackpack={this.state.currentBackpack}/>}
-        {this.state.page === "Helmet + Faceshield" && <AppHelmet textTotal={textShow} setItem={this.setHelm} currentItem={this.state.currentHelm} currentFace={this.state.currentFaceshield} />}
+        {this.state.page === "Helmet + Faceshield" && <AppHelmet textTotal={textShow2} setItem={this.setHelm} currentItem={this.state.currentHelm} currentFace={this.state.currentFaceshield} />}
         {/* {this.state.page === "Faceshield" && <AppFaceShield textTotal={textShow} setItem={this.setFaceshield} currentItem={this.state.currentFaceshield}/>} */}
         {this.state.page === "Headset" && <AppHeadset textTotal={textShow} setItem={this.setHeadset} currentItem={this.state.currentHeadset}/>}
         {this.state.page === "Vest" && <AppVest textTotal={textShow} setItem={this.setVest} currentItem={this.state.currentVest}/>}
@@ -186,10 +219,10 @@ export default class App extends Component {
               page: "Rig",
               icon: "person",
             },
-            {
-              page: "ArmoredRig",
-              icon: "person-add",
-            },
+            // {
+            //   page: "ArmoredRig",
+            //   icon: "person-add",
+            // },
             {
               page: "Backpack",
               icon: "briefcase",

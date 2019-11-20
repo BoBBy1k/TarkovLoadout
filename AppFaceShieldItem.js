@@ -9,7 +9,8 @@ export default class FaceshieldListItem extends Component {
   
   render() {
     return (
-      <TouchableHighlight style={styles.imagestyle} onPress={() => {this.props.setFace(this.props.index)}}>
+      <TouchableHighlight style={styles.imagestyle} onPress={() => {
+        if(faceshields_list[this.props.index]['require'].includes(this.props.currentHelm) == true) {this.props.setFace(this.props.index)}}}>
           {this.props.index == this.props.currentItem && faceshields_list[this.props.index]['require'].includes(this.props.currentHelm) == true ? 
           <Image style={styles.activeimagestyle} source={getFaceshields(this.props.index)} /> 
           : this.props.index == this.props.currentView && faceshields_list[this.props.index]['require'].includes(this.props.currentHelm) == true ? 

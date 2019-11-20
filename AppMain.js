@@ -19,9 +19,9 @@ export default class AppMain extends Component {
   render() {
     return (
       <View style={styles.container}>
-          <Text style={styles.title}>Tarkov Loadout App</Text>
+          <Text style={styles.title}>Tarkov Loadout Builder</Text>
           <Text style={styles.calculations}>{this.props.textTotal}</Text>
-        <ScrollView style={styles.container}>
+        <ScrollView style={styles.container2}>
           <View style={styles.image1Container}>
             <Image source={getHelm(this.props.currentHelm)} style={styles.image} />
             <Image source={getHeadset(this.props.currentHeadset)} style={styles.image} />
@@ -43,6 +43,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#000000',
+  },
+  container2: {
+    flex: 1,
+    backgroundColor: '#000000',
+    marginBottom: 60
   },
   name: {
     fontSize: 30,

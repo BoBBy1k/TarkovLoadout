@@ -21,7 +21,7 @@ export default class AppArmoredRig extends Component {
         <Text style={styles.name}>{armoredrig_list[this.state.currentItem]["name"]}</Text>
         <Text style={styles.calculations}>{this.props.textTotal(armoredrig_list, this.state.currentItem)}</Text>
         <Button onPress={() => {this.props.setItem(this.state.currentItem)}} title="Save" />
-        <ScrollView style={styles.container}>
+        <ScrollView style={styles.container2}>
           <Text style={styles.title}>Armored Rig</Text>
          {armoredrig_list.map((armoredrig, i) => <AppArmoredRigItem armoredrig={armoredrig} index={i} setItem={this.viewItem} currentItem={this.props.currentItem} currentView={this.state.currentItem} />)}
         </ScrollView>
@@ -34,6 +34,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#000000',
+  },
+  container2: {
+    flex: 1,
+    backgroundColor: '#000000',
+    marginBottom: 60
   },
   name: {
     fontSize: 30,
